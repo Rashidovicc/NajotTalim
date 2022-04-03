@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NajotTalim.Domain.Commons
+﻿namespace NajotTalim.Domain.Commons
 {
     public class ErrorResponse
     {

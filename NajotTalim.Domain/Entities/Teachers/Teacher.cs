@@ -1,10 +1,8 @@
 ﻿using NajotTalim.Domain.Commons;
+using NajotTalim.Domain.Entities.Groups;
 using NajotTalim.Domain.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NajotTalim.Domain.Entities.Teachers
 {
@@ -13,6 +11,9 @@ namespace NajotTalim.Domain.Entities.Teachers
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public Guid GroupId { get; set; }
+        [ForeignKey(nameof(GroupId))]
+        public Group Group { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public Guid? UpdatedBy { get; set; }
