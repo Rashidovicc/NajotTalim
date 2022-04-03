@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NajotTalim.Api.Extensions;
 using NajotTalim.Data.Contexts;
+using NajotTalim.Services.Mappers;
 
 namespace NajotTalim.Api
 {
@@ -27,7 +29,12 @@ namespace NajotTalim.Api
                 options.UseSqlServer(Configuration.GetConnectionString("NajotTalimDb"));
             });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+
+            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddHttpContextAccessor();
+
+            services.AddCustomServices();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NajotTalim.Api", Version = "v1" });

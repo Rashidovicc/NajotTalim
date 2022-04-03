@@ -20,12 +20,12 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NajotTalim.Data\NajotTalim.Data.csproj" />
+    <ProjectReference Include="..\NajotTalim.Services\NajotTalim.Services.csproj" />
   </ItemGroup>
 
 </Project>

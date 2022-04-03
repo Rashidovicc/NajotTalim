@@ -1,6 +1,8 @@
-﻿namespace NajotTalim.Services.Services
+﻿using NajotTalim.Services.Interfaces;
+
+namespace NajotTalim.Services.Services
 {
-    public class StudentService
+    public class StudentService : IStudentService
     {
     }
 }
