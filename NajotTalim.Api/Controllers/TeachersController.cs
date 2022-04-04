@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NajotTalim.Domain.Commons;
 using NajotTalim.Domain.Configurations;
 using NajotTalim.Domain.Entities.Teachers;
@@ -20,7 +19,7 @@ namespace NajotTalim.Api.Controllers
         private readonly ITeacherService teacherService;
         public TeachersController(ITeacherService teacherService)
         {
-           this.teacherService = teacherService;
+            this.teacherService = teacherService;
         }
 
         [HttpPost]

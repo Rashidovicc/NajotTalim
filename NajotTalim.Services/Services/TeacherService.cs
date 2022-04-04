@@ -34,9 +34,9 @@ namespace NajotTalim.Services.Services
 
         public async Task<BaseResponse<Teacher>> CreateAsync(TeacherForCreation teacherDto)
         {
-            var response = new BaseResponse<Teacher>();                 
+            var response = new BaseResponse<Teacher>();
 
-           
+
             var mappedTeacher = mapper.Map<Teacher>(teacherDto);
 
             // save image from dto model to wwwroot
