@@ -114,7 +114,7 @@ namespace NajotTalim.Services.Services
             return fileName;
         }
 
-        public async Task<BaseResponse<Teacher>> UpdateAsync(Guid id, TeacherForCreation teacherDto)
+        public async Task<BaseResponse<Teacher>> UpdateAsync(Guid id, TeacherForUpdating teacherDto)
         {
             var response = new BaseResponse<Teacher>();
 

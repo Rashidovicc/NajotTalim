@@ -129,7 +129,7 @@ namespace NajotTalim.Services.Services
         }
 
 
-        public async Task<BaseResponse<Student>> UpdateAsync(Guid id, StudentForCreation studentDto)
+        public async Task<BaseResponse<Student>> UpdateAsync(Guid id, StudentForUpdating studentDto)
         {
             var response = new BaseResponse<Student>();
 

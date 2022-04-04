@@ -17,7 +17,7 @@ namespace NajotTalim.Services.Interfaces
         Task<BaseResponse<Teacher>> GetAsync(Expression<Func<Teacher, bool>> expression);
         Task<BaseResponse<IEnumerable<Teacher>>> GetAllAsync(PaginationParams @params, Expression<Func<Teacher, bool>> expression = null);
         Task<BaseResponse<bool>> DeleteAsync(Expression<Func<Teacher, bool>> expression);
-        Task<BaseResponse<Teacher>> UpdateAsync(Guid id, TeacherForCreation teacherDto);
+        Task<BaseResponse<Teacher>> UpdateAsync(Guid id, TeacherForUpdating teacherDto);
 
         Task<string> SaveFileAsync(Stream file, string fileName);
     }
