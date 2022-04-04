@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace NajotTalim.Services.Services
 {
+
     public class StudentService : IStudentService
     {
         private readonly IUnitOfWork unitOfWork;
@@ -163,5 +164,32 @@ namespace NajotTalim.Services.Services
             return response;
         }
 
+        public async Task<BaseResponse<Student>> UpdateGroup(Guid id, Guid groupId)
+        {
+            var response = new BaseResponse<Student>();
+            var student = await unitOfWork.Students.GetAsync(p => p.Id == groupId && p.State != ItemState.Deleted);
+            if(student is null)
+            {
+                response.Error = new ErrorResponse(404, "Student not found");
+                return response;
+            }
+
+            var group = await unitOfWork.Groups.GetAsync(p => p.Id == id && p.State != ItemState.Deleted);
+            if(group is null)
+            {
+                response.Error = new ErrorResponse(404, "Group not found");
+                return response;
+            }
+
+            student.GroupId = groupId;
+            student.Update();
+
+            var res = await unitOfWork.Students.UpdateAsync(student);
+            await unitOfWork.SaveChangesAsync();
+
+            response.Data= res;
+
+            return response;
+        }
     }
 }

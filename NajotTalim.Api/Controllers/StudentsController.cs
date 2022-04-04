@@ -60,6 +60,13 @@ namespace NajotTalim.Api.Controllers
 
             return StatusCode(result.Code ?? result.Error.Code.Value, result);
         }
+        [HttpPatch]
 
+        public async Task<ActionResult<BaseResponse<Student>>> UpdateGroup([FromQuery]Guid id, [FromQuery]Guid groupId)
+        {
+            var res = await studentService.UpdateGroup(id, groupId);
+
+            return StatusCode(res.Code ?? res.Error.Code.Value, res);
+        }
     }
 }
