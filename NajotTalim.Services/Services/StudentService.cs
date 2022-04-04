@@ -174,7 +174,7 @@ namespace NajotTalim.Services.Services
                 return response;
             }
 
-            var group = await unitOfWork.Groups.GetAsync(p => p.Id == id && p.State != ItemState.Deleted);
+            var group = await unitOfWork.Groups.GetAsync(p => p.Id == groupId && p.State != ItemState.Deleted);
             if(group is null)
             {
                 response.Error = new ErrorResponse(404, "Group not found");
