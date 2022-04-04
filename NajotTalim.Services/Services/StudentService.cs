@@ -167,7 +167,7 @@ namespace NajotTalim.Services.Services
         public async Task<BaseResponse<Student>> UpdateGroup(Guid id, Guid groupId)
         {
             var response = new BaseResponse<Student>();
-            var student = await unitOfWork.Students.GetAsync(p => p.Id == groupId && p.State != ItemState.Deleted);
+            var student = await unitOfWork.Students.GetAsync(p => p.Id == id && p.State != ItemState.Deleted);
             if(student is null)
             {
                 response.Error = new ErrorResponse(404, "Student not found");
