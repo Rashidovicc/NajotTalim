@@ -21,7 +21,5 @@ namespace NajotTalim.Api
                {
                    loggingConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
                });
-
-
     }
 }
