@@ -59,6 +59,7 @@ namespace NajotTalim.Api
             }
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
