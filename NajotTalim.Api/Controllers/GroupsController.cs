@@ -39,7 +39,7 @@ namespace NajotTalim.Api.Controllers
 
         [HttpGet]
 
-        public async Task<ActionResult<BaseResponse<IEnumerable<Group>>>> GetGroups(PaginationParams @params)
+        public async Task<ActionResult<BaseResponse<IEnumerable<Group>>>> GetGroups([FromQuery]PaginationParams @params)
         {
             var res = await groupService.GetAllAsync(@params);
 
