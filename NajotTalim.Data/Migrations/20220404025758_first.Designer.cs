@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NajotTalim.Data.Migrations
 {
     [DbContext(typeof(NajotTalimDbContext))]
-    [Migration("20220404024930_third")]
-    partial class third
+    [Migration("20220404025758_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
