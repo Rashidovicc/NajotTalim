@@ -46,7 +46,7 @@ namespace NajotTalim.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<BaseResponse<Student>>> Update(Guid id, StudentForCreation studentDto)
+        public async Task<ActionResult<BaseResponse<Student>>> Update(Guid id,[FromForm] StudentForCreation studentDto)
         {
             var result = await studentService.UpdateAsync(id, studentDto);
 
