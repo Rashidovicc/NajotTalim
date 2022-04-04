@@ -40,7 +40,7 @@ namespace NajotTalim.Services.Services
             var existStudent = await unitOfWork.Students.GetAsync(p => p.Phone == studentDto.Phone);
             if (existStudent is not null)
             {
-                response.Error = new ErrorResponse(400, "User is exist");
+                response.Error = new ErrorResponse(400, "User Exists");
                 return response;
             }
 
@@ -92,7 +92,7 @@ namespace NajotTalim.Services.Services
             }
             existStudent.Delete();
 
-            var result = await unitOfWork.Students.UpdateAsync(existStudent);
+            await unitOfWork.Students.UpdateAsync(existStudent);
 
             await unitOfWork.SaveChangesAsync();
 
