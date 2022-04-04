@@ -13,6 +13,7 @@ namespace NajotTalim.Domain.Entities.Groups
         public DateTime? UpdatedAt { get; set; }
         public Guid? UpdatedBy { get; set; }
         public ItemState State { get; set; } = ItemState.Created;
+        public string Image { get; set; }
 
         public void Update()
         {
