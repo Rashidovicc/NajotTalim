@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace NajotTalim.Api.Controllers
 {
     [ApiController]
-    [Route("Api/[controller]")]
+    [Route("api/[controller]")]
     public class StudentsController : ControllerBase
     {
         private readonly IStudentService studentService;
