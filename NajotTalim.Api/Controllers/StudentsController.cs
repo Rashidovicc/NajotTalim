@@ -51,6 +51,7 @@ namespace NajotTalim.Api.Controllers
             var result = await studentService.UpdateAsync(id, studentDto);
 
             return StatusCode(result.Code ?? result.Error.Code.Value, result);
+
         }
 
         [HttpDelete("{id}")]
