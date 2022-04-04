@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NajotTalim.Data\NajotTalim.Data.csproj" />
     <ProjectReference Include="..\NajotTalim.Domain\NajotTalim.Domain.csproj" />
   </ItemGroup>
 

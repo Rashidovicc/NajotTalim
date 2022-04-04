@@ -5,9 +5,9 @@ namespace NajotTalim.Data.IRepositories
 {
     public interface IUnitOfWork : IDisposable
     {
-        IStudentRepository StudentRepository { get; }
-        IGroupRepository GroupRepository { get; }
-        ITeacherRepository TeacherRepository { get; }
+        IStudentRepository Students { get; }
+        IGroupRepository Groups { get; }
+        ITeacherRepository Teachers { get; }
         Task SaveChangesAsync();
     }
 }

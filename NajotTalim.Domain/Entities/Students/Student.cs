@@ -15,7 +15,7 @@ namespace NajotTalim.Domain.Entities.Students
         public DateTime? UpdatedAt { get; set; }
         public Guid? UpdatedBy { get; set; }
         public ItemState State { get; set; } = ItemState.Created;
-
+        public string Image { get; set; }
         public void Update()
         {
             UpdatedAt = DateTime.Now;

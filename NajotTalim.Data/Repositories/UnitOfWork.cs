@@ -11,12 +11,15 @@ namespace NajotTalim.Data.Repositories
         public UnitOfWork(NajotTalimDbContext context)
         {
             this.context = context;
+            this.Students = new StudentRepository(context);
+            this.Teachers = new TeacherRepository(context);
+            this.Groups = new GroupRepository(context);
         }
-        public IStudentRepository StudentRepository { get; set; }
+        public IStudentRepository Students { get; set; }
 
-        public IGroupRepository GroupRepository { get; set; }
+        public IGroupRepository Groups { get; set; }
 
-        public ITeacherRepository TeacherRepository { get; set; }
+        public ITeacherRepository Teachers { get; set; }
 
         public void Dispose()
         {
