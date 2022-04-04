@@ -58,7 +58,7 @@ namespace NajotTalim.Services.Services
 
             var result = await unitOfWork.Students.CreateAsync(mappedStudent);
 
-            result.Image = "https://localhost:5001/Images/" + result.Image;
+            result.Image = "https://najottalim.herokuapp.com/Images/" + result.Image;
 
             await unitOfWork.SaveChangesAsync();
 

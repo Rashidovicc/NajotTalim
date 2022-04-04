@@ -28,7 +28,7 @@ namespace NajotTalim.Api
 
             services.AddDbContext<NajotTalimDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("NajotTalimDb"));
+                options.UseNpgsql(Configuration.GetConnectionString("NajotTalimDb"));
             });
 
             services.AddControllers().AddNewtonsoftJson();
