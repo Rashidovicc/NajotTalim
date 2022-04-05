@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NajotTalim.Domain.Attributes
 {
     public class AllowedFilesAttribute : ValidationAttribute
     {
         private readonly string[] extensions;
-        public AllowedFilesAttribute(string [] extensions) 
+        public AllowedFilesAttribute(string[] extensions)
         {
             this.extensions = extensions;
         }
@@ -29,7 +26,7 @@ namespace NajotTalim.Domain.Attributes
                 }
             }
             return ValidationResult.Success;
-        }      
+        }
 
         public string GetErrorMessage()
         {

@@ -62,7 +62,7 @@ namespace NajotTalim.Api.Controllers
         }
         [HttpPatch]
 
-        public async Task<ActionResult<BaseResponse<Student>>> UpdateGroup([FromQuery]Guid id, [FromQuery]Guid groupId)
+        public async Task<ActionResult<BaseResponse<Student>>> UpdateGroup([FromQuery] Guid id, [FromQuery] Guid groupId)
         {
             var res = await studentService.UpdateGroup(id, groupId);
 
