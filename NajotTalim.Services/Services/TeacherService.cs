@@ -44,7 +44,7 @@ namespace NajotTalim.Services.Services
 
             var result = await unitOfWork.Teachers.CreateAsync(mappedTeacher);
 
-            result.Image = "https://najottalim.herokuapp.com/Images/" + result.Image;
+            result.Image = config.GetSection("FileUrl:ImageUrl").Value + result.Image;
 
             await unitOfWork.SaveChangesAsync();
 
