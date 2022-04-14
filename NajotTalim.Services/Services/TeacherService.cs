@@ -107,6 +107,7 @@ namespace NajotTalim.Services.Services
             fileName = Guid.NewGuid().ToString("N") + "_" + fileName;
             string storagePath = config.GetSection("Storage:ImageUrl").Value;
             string filePath = Path.Combine(env.WebRootPath, $"{storagePath}/{fileName}");
+
             FileStream mainFile = File.Create(filePath);
             await file.CopyToAsync(mainFile);
             mainFile.Close();

@@ -26,6 +26,8 @@ namespace NajotTalim.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+
             services.AddDbContext<NajotTalimDbContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("NajotTalimDb"));
@@ -34,6 +36,7 @@ namespace NajotTalim.Api
             services.AddControllers().AddNewtonsoftJson();
 
             services.AddAutoMapper(typeof(MappingProfile));
+
             services.AddHttpContextAccessor();
 
             services.AddCustomServices();

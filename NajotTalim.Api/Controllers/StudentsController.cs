@@ -19,6 +19,7 @@ namespace NajotTalim.Api.Controllers
         public StudentsController(IStudentService studentService)
         {
             this.studentService = studentService;
+
         }
 
         [HttpPost]

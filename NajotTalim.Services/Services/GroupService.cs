@@ -72,6 +72,7 @@ namespace NajotTalim.Services.Services
                 response.Error = new ErrorResponse(404, "Group not Found");
                 return response;
             }
+
             response.Data = group;
             return response;
         }
