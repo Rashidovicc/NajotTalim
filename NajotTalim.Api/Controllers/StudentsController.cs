@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using NajotTalim.Domain.Commons;
 using NajotTalim.Domain.Configurations;
 using NajotTalim.Domain.Entities.Students;
 using NajotTalim.Domain.Enums;
 using NajotTalim.Services.DTOs;
+using NajotTalim.Services.Helpers;
 using NajotTalim.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -16,10 +18,11 @@ namespace NajotTalim.Api.Controllers
     public class StudentsController : ControllerBase
     {
         private readonly IStudentService studentService;
-        public StudentsController(IStudentService studentService)
+        private IConfiguration config;
+        public StudentsController(IStudentService studentService, IConfiguration config)
         {
             this.studentService = studentService;
-
+            this.config = config;
         }
 
         [HttpPost]
@@ -33,9 +36,19 @@ namespace NajotTalim.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<BaseResponse<IEnumerable<Student>>>> GetAll([FromQuery] PaginationParams @params)
         {
-            var result = await studentService.GetAllAsync(@params);
 
-            return StatusCode(result.Code ?? result.Error.Code.Value, result);
+            string username = config.GetSection("Authentication:Basic:Username").Value;
+            string password = config.GetSection("Authentication:Basic:Password").Value;
+            if(username == HttpContextHelper.BasicUsername && password == HttpContextHelper.BasicPassword)
+            {
+                var result = await studentService.GetAllAsync(@params);
+
+                return StatusCode(result.Code ?? result.Error.Code.Value, result);
+            }
+
+            else
+                return Unauthorized();
+            
         }
 
         [HttpGet("{id}")]
